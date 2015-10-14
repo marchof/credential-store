@@ -51,13 +51,13 @@ sh $SCRIPTS_LOCATION/add_key.sh $TEST_STORE $KEY_B_PUBLIC $KEY_A_PRIVATE
 
 echo === Add entry ===
 
-echo "geheim1111" | sh $SCRIPTS_LOCATION/put_entry.sh $TEST_STORE com.example..credential1 
+echo "geheim1111" | sh $SCRIPTS_LOCATION/put_entry.sh $TEST_STORE com.example.credential1 
 
 
 echo === Read entry with diffent keys ===
 
-assertEquals "geheim1111" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example..credential1 $KEY_A_PRIVATE)
-assertEquals "geheim1111" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example..credential1 $KEY_B_PRIVATE)
+assertEquals "geheim1111" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential1 $KEY_A_PRIVATE)
+assertEquals "geheim1111" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential1 $KEY_B_PRIVATE)
 
 
 echo === Add another keypairs ===
@@ -67,12 +67,12 @@ sh $SCRIPTS_LOCATION/add_key.sh $TEST_STORE $KEY_C_PUBLIC $KEY_A_PRIVATE
 
 echo === Read existing entry with new key ===
 
-assertEquals "geheim1111" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example..credential1 $KEY_C_PRIVATE)
+assertEquals "geheim1111" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential1 $KEY_C_PRIVATE)
 
 
 echo === Add another entry and read with all keys ===
 
-echo "topsecret6723" | sh $SCRIPTS_LOCATION/put_entry.sh $TEST_STORE com.example..credential2 
-assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example..credential2 $KEY_A_PRIVATE)
-assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example..credential2 $KEY_B_PRIVATE)
-assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example..credential2 $KEY_C_PRIVATE)
+echo "topsecret6723" | sh $SCRIPTS_LOCATION/put_entry.sh $TEST_STORE com.example.credential2 
+assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential2 $KEY_A_PRIVATE)
+assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential2 $KEY_B_PRIVATE)
+assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential2 $KEY_C_PRIVATE)
