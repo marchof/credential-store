@@ -1,4 +1,4 @@
-OpenSSL based credential store
+OpenSSL Based Credential Store
 ==============================
 
 Collection of scripts to manage a store of encrypted credentials. Multiple
@@ -10,6 +10,7 @@ Use Cases
 * Add/update entry
 * Remove entry
 * Get entry (any private key required)
+* Get all entries (any private key required)
 * Add public key (any existing private key required to re-encrypt entries)
 
 
@@ -59,4 +60,13 @@ Example:
  |    +-- com.example.credential2.key
  +-- com.example.credential1
  +-- com.example.credential2
+```
+
+Test Execution
+--------------
+
+Run the following command to execute the test scenario:
+
+```
+sh src/test/scripts/runtests.sh
 ```
