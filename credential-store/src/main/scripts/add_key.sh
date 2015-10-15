@@ -25,7 +25,6 @@ fi
 
 SOURCE_FP=$(cat $PRIVATE_KEY_FILE | getPublicKey | getFingerprint)
 SOURCE_KEYS_DIR=$STORE_DIR/keys-$SOURCE_FP
-# for SOURCE_KEY_FILE in $SOURCE_KEYS_DIR/*.key; do
 for SOURCE_KEY_FILE in $(ls $SOURCE_KEYS_DIR/*.key 2> /dev/null); do
   KEY_NAME=$(echo "$SOURCE_KEY_FILE" | sed 's/\.key$//' | sed 's/^.*\///')
   TARGET_KEY_FILE=$TARGET_KEYS_DIR/$KEY_NAME.key

@@ -76,3 +76,11 @@ echo "topsecret6723" | sh $SCRIPTS_LOCATION/put_entry.sh $TEST_STORE com.example
 assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential2 $KEY_A_PRIVATE)
 assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential2 $KEY_B_PRIVATE)
 assertEquals "topsecret6723" $(sh $SCRIPTS_LOCATION/get_entry.sh $TEST_STORE com.example.credential2 $KEY_C_PRIVATE)
+
+
+echo === Decrypt all entries ===
+TEST_DECRYPTED=$TEST_TARGET/decrypted
+mkdir $TEST_DECRYPTED
+sh $SCRIPTS_LOCATION/get_all_entries.sh $TEST_STORE $TEST_DECRYPTED $KEY_A_PRIVATE
+assertEquals "geheim1111" $(cat $TEST_DECRYPTED/com.example.credential1)
+assertEquals "topsecret6723" $(cat $TEST_DECRYPTED/com.example.credential2)
